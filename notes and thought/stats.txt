@@ -1,0 +1,44 @@
+Scenes
+	normal
+	normal with platforms
+	only platforms
+Fighter
+	Stats
+		HP 
+		Manna
+		Damage resitances
+			physical
+			fire
+			water
+			kaminari
+			earth
+			air
+		CC(crowd control)
+	Inventory
+		number of slots
+	Basic Attack
+		range
+		damage dealt
+	Ability (three)
+		types
+			melee
+			balisting types
+			lobbed
+			global
+			Area of Effect
+			linear
+		damage dealt
+		speed
+	Ultimate Ability
+		types
+			melee
+			balisting types
+			lobbed
+			global
+			Area of Effect
+			linear
+		damage dealt
+		speed
+	Passive Ability
+		
+		
