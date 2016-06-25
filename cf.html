@@ -1,11 +1,18 @@
 <canvas id="ctx" width="1000" height="500" style="border:1px solid #000000;"></canvas>
+<script src="jsf/keys.js"></script>
+<script src="jsf/physics.js"></script>
+<script src="jsf/fighter.js"></script>
+<script src="jsf/variables.js"></script>
 
 <script>
 
-var ctx = document.getElementById("ctx").getContext("2d"); 
-ctx.font = '30px Arial';
-ctx.mozImageSmoothingEnabled = false;	//better graphics for pixel art
-ctx.msImageSmoothingEnabled = false;
-ctx.imageSmoothingEnabled = false;
+update = function(){
+	ctx.clearRect(0,0,WIDTH,HEIGHT);
+	
+	gravity(player1);
+	gravity(player2);
+	
+}
+setInterval(update,40);
 
 </script>
