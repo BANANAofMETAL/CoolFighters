@@ -4,44 +4,95 @@ document.onkeydown = function(event){
 	
 	
 	
-	if (event.keyCode === player1.jumpkey){
-		player1.character = 'L';
-		player1.isJumpPressed=true;
+	
+	
+	switch (event.keyCode){
+		//player 1
+		case player1.jumpkey:
+			player1.isJumpPressed=true;
+			break;
+		case player1.moveleft:
+			player1.isLeftPressed=true;
+			break;
+		case player1.moveright:
+			player1.isRightPressed=true;
+			break;
+		case player1.blockkey:
+			player1.character = 'B';
+			player1.isBlockPressed=true;
+			break;
+		
+		//player 2
+		case player2.jumpkey:
+			player2.isJumpPressed=true;
+			break;
+		case player2.moveleft:
+			player2.isLeftPressed=true;
+			break;
+		case player2.moveright:
+			player2.isRightPressed=true;
+			break;
+		case player2.blockkey:
+			player2.character = 'B';
+			player2.isBlockPressed=true;
+			break;
+		default: break;
 	}
 	
 	
-	if (event.keyCode === player2.jumpkey){
-		player2.character = 'L';
-		player2.isJumpPressed=true;
-	}
 }
 
 document.onkeyup = function(event){
 	
-	if (event.keyCode === player1.jumpkey){
-		player1.character='H';
-		player1.isJumpPressed=false;
-	}
-	
-	
-	if (event.keyCode === player2.jumpkey){
-		player2.character='H';
-		player2.isJumpPressed=false;
+	switch (event.keyCode){
+		//player 1
+		case player1.jumpkey:
+
+			player1.isJumpPressed=false;
+			break;
+		case player1.moveleft:
+			player1.isLeftPressed=false;
+			break;
+		case player1.moveright:
+			player1.isRightPressed=false;
+			break;
+		case player1.blockkey:
+			player1.character = 'H';
+			player1.isBlockPressed=false;
+			break;
+		
+		//player 2
+		case player2.jumpkey:
+			player2.isJumpPressed=false;
+			break;
+		case player2.moveleft:
+			player2.isLeftPressed=false;
+			break;
+		case player2.moveright:
+			player2.isRightPressed=false;
+			break;
+		case player2.blockkey:
+			player2.character = 'H';
+			player2.isBlockPressed=false;
+			break;
+		default: break;
 	}
 }
 
 
 
 var schema1={
-	up:65,
-	left:'A',
-	right:'D',
+	up:87,//w
+	left:65,//a
+	right:68,//d
+	down:83,//s
 	};
 	
 var schema2={
-	up:32,
-	left:'ArL',
-	right:'ArR',
+	up:38,//ArU
+	left:37,//ArL
+	right:39,//ArR
+	down:40//ArD
 	};
 	
 	

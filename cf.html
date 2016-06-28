@@ -10,7 +10,9 @@ update = function(){
 	ctx.clearRect(0,0,WIDTH,HEIGHT);
 	
 	gravity(player1);
+	movement(player1,10);
 	gravity(player2);
+	movement(player2,10);
 	
 }
 setInterval(update,40);

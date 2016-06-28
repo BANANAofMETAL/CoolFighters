@@ -12,12 +12,14 @@ Fighter =function(x,y,schema){
 		jumpkey:schema.up,
 		moveleft:schema.left,
 		moveright:schema.right,
-	
+		blockkey:schema.down,
+		
 	
 		//buttons
 		isJumpPressed:false,
 		isRightPressed:false,
 		isLeftPressed:false,
+		isBlockPressed:false,
 	};
 	
 	return self;
