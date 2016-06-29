@@ -1,5 +1,5 @@
 
-
+//fighter constructor
 Fighter =function(x,y,schema){
 	var self={
 		x:x,
@@ -7,7 +7,9 @@ Fighter =function(x,y,schema){
 		isTouchingGround:false,
 		xAccel:0,
 		yAccel:0,
-		character:'H',
+		jumpHeight:15,
+		movementSpeed:15,
+		character:'H',//will be changed into a picture(or sprite)
 		
 		jumpkey:schema.up,
 		moveleft:schema.left,

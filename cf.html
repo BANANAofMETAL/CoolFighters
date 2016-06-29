@@ -6,15 +6,25 @@
 
 <script>
 
+drawEntity = function(actor){
+	//CHANGE THIS TO DRAW
+	ctx.fillText(actor.character,actor.x,actor.y);
+}
+
 update = function(){
 	ctx.clearRect(0,0,WIDTH,HEIGHT);
 	
 	gravity(player1);
-	movement(player1,10);
+	movement(player1);
 	gravity(player2);
-	movement(player2,10);
+	movement(player2);
+	
+	drawEntity(player1);
+	drawEntity(player2);
 	
 }
 setInterval(update,40);
+
+
 
 </script>
