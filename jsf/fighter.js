@@ -9,7 +9,7 @@ Fighter =function(x,y,schema){
 		yAccel:0,
 		jumpHeight:15,
 		movementSpeed:15,
-		character:'H',//will be changed into a picture(or sprite)
+		character:'P',//will be changed into a picture(or sprite)
 		
 		jumpkey:schema.up,
 		moveleft:schema.left,
