@@ -18,7 +18,6 @@ document.onkeydown = function(event){
 			player1.isRightPressed=true;
 			break;
 		case player1.blockkey:
-			player1.character = 'B';
 			player1.isBlockPressed=true;
 			break;
 		
@@ -33,7 +32,6 @@ document.onkeydown = function(event){
 			player2.isRightPressed=true;
 			break;
 		case player2.blockkey:
-			player2.character = 'C';
 			player2.isBlockPressed=true;
 			break;
 		default: break;
@@ -57,7 +55,6 @@ document.onkeyup = function(event){
 			player1.isRightPressed=false;
 			break;
 		case player1.blockkey:
-			player1.character = 'H';
 			player1.isBlockPressed=false;
 			break;
 		
@@ -72,7 +69,6 @@ document.onkeyup = function(event){
 			player2.isRightPressed=false;
 			break;
 		case player2.blockkey:
-			player2.character = 'I';
 			player2.isBlockPressed=false;
 			break;
 		default: break;

@@ -99,8 +99,8 @@ gravity = function (actor){
 		actor.yAccel = 0;
 	}
 	
-	if (actor.y >= HEIGHT){
-		actor.y = HEIGHT;
+	if (actor.y >= HEIGHT - (actor.height/2)){
+		actor.y = HEIGHT - (actor.height/2);
 		actor.isTouchingGround = true;
 	}
 }
@@ -128,7 +128,9 @@ movement=function(actor){
 	*  if a player tries to move right while he is already at 
 	*  0 on x-axis, the player bugs. These three lines prevent that.
 	*/
-	if (actor.x == 0 && actor.isLeftPressed){
+	if (actor.x <= actor.width/2 && actor.isLeftPressed){
+		actor.x = actor.width/2;
+		actor.xAccel = 0;
 		return;
 	}
 	
@@ -173,12 +175,12 @@ movement=function(actor){
 			actor.xAccel +=1;
 		}
 		
-		if(actor.x-actor.xAccel>0){
+		if(actor.x-actor.xAccel>actor.width/2){
 			actor.x+=actor.xAccel;
 		}
-		else {
-			actor.x=0;
-			actor.xAccel=0;//if leaving the map is considered a death, this should leave
+		else {//if leaving the map is considered a death, this should leave
+			actor.x=actor.width/2;
+			actor.xAccel=0;
 		}
 		
 	}
@@ -190,12 +192,12 @@ movement=function(actor){
 			actor.xAccel -=1;
 		}
 		
-		if(actor.x+actor.xAccel<WIDTH-55){
+		if(actor.x+actor.xAccel<WIDTH-actor.width/2){
 			actor.x+=actor.xAccel;
 		}
-		else {
-			actor.x=WIDTH-55;
-			actor.xAccel=0;//if leaving the map is considered a death, this should leave
+		else {//if leaving the map is considered a death, this should leave
+			actor.x=WIDTH-actor.width/2;
+			actor.xAccel=0;
 		}
 	}
 }

@@ -10,7 +10,10 @@ Fighter =function(x,y,schema,character){
 		jumpHeight:15,
 		movementSpeed:15,
 		hp:10,
-		character:character,//will be changed into a picture(or sprite)
+		color:character.color,//will be changed into a picture(or sprite)
+		height:character.height,
+		width:character.width,
+		
 		
 		jumpkey:schema.up,
 		moveleft:schema.left,
