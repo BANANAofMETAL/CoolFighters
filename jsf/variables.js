@@ -9,5 +9,5 @@ ctx.imageSmoothingEnabled = false;
 var WIDTH = 1000;			//canvas width
 var HEIGHT = 500;			//canvas height
 
-var player1 = Fighter(0,10,schema1);	//create player 1
-var player2 = Fighter(400,10,schema2);	//create player 2
+var player1 = Fighter(0,10,schema1,'H');	//create player 1
+var player2 = Fighter(400,10,schema2,'I');	//create player 2

@@ -5,7 +5,7 @@ Scenes
 Fighter
 	Stats
 		HP 
-		Manna
+		Mana
 		Damage resitances
 			physical
 			fire
