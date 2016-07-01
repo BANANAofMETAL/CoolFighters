@@ -9,6 +9,9 @@
 * returns boolean
 */
 
+var gravity_pol=1;
+var slide=2;
+var friction=1;
 
 testColition=function (ent1,ent2){
 var rect1={
@@ -90,9 +93,9 @@ gravity = function (actor){
 	
 	if (!actor.isTouchingGround){
 		actor.y += actor.yAccel;
-		actor.yAccel ++;
+		actor.yAccel +=gravity_pol;
 		if (actor.isBlockPressed){
-			actor.yAccel +=3;
+			actor.yAccel +=gravity_pol*3;
 		}
 	}
 	else {
@@ -142,22 +145,22 @@ movement=function(actor){
 	//otherwise, increases respective acceleration.
 	else{
 		if(actor.isLeftPressed){
-			if(actor.xAccel-2<=-actor.movementSpeed){
+			if(actor.xAccel-slide<=-actor.movementSpeed){
 				actor.xAccel=-actor.movementSpeed;
 			}
 			else{
-				actor.xAccel -=2;
+				actor.xAccel -=slide;
 			}
 
 		}
 	
 		if(actor.isRightPressed){
 		
-			if(actor.xAccel+2>=actor.movementSpeed){
+			if(actor.xAccel+slide>=actor.movementSpeed){
 			actor.xAccel=actor.movementSpeed;
 			}
 			else{
-				actor.xAccel +=2;
+				actor.xAccel +=slide;
 			}
 
 		}
@@ -168,11 +171,11 @@ movement=function(actor){
 	//decreases acceletation. This is always called, wether
 	//a button is pressed or not.
 	if(actor.xAccel<0){
-		if(actor.xAccel+1>=0){
+		if(actor.xAccel+friction>=0){
 			actor.xAccel=0;
 		}
 		else{
-			actor.xAccel +=1;
+			actor.xAccel +=friction;
 		}
 		
 		if(actor.x-actor.xAccel>actor.width/2){
@@ -185,11 +188,11 @@ movement=function(actor){
 		
 	}
 	else if(actor.xAccel>0){
-		if(actor.xAccel-1<=0){
+		if(actor.xAccel-friction<=0){
 			actor.xAccel=0;
 		}
 		else{
-			actor.xAccel -=1;
+			actor.xAccel -=friction;
 		}
 		
 		if(actor.x+actor.xAccel<WIDTH-actor.width/2){
