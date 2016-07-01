@@ -1,3 +1,53 @@
+/**
+* This function tests colition
+*
+* (extra explanation)
+*
+* (thoughts and future plans)
+* -
+*
+* returns boolean
+*/
+
+
+testColition=function (ent1,ent2){
+var rect1={
+	x:ent1.x-ent1.width/2,
+	y:ent1.y-ent1.height/2,
+	width:ent1.width,
+	height:ent1.height,
+}
+
+var rect2={
+	x:ent2.x-ent2.width/2,
+	y:ent2.y-ent2.height/2,
+	width:ent2.width,
+	height:ent2.height,
+}
+
+return testColitionRect(rect1,rect2);
+}
+
+
+/**
+* This function tests Rectangle Colition
+*
+* (extra explanation)
+*
+* (thoughts and future plans)
+* -
+*
+* returns boolean
+*/
+
+testColitionRect=function (r1,r2){
+
+	return r1.x<=r2.x+r2.width
+	&&     r2.x<=r1.x+r1.width
+	&&     r1.y<=r2.y+r2.height
+	&&     r2.y<=r1.y+r1.height ;
+
+}
 
 /**
 * This function makes the player jump.
