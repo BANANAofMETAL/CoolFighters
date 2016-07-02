@@ -23,7 +23,6 @@ Fighter
 		types
 			melee
 			balisting types
-			lobbed
 			global
 			Area of Effect
 			linear
@@ -33,7 +32,6 @@ Fighter
 		types
 			melee
 			balisting types
-			lobbed
 			global
 			Area of Effect
 			linear

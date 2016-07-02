@@ -20,6 +20,10 @@ document.onkeydown = function(event){
 		case player1.blockkey:
 			player1.isBlockPressed=true;
 			break;
+		case player1.attackkey:
+			player1.isAttackPressed=true;
+			player1.color = 'black';
+			break;
 		
 		//player 2
 		case player2.jumpkey:
@@ -33,6 +37,10 @@ document.onkeydown = function(event){
 			break;
 		case player2.blockkey:
 			player2.isBlockPressed=true;
+			break;
+		case player2.attackkey:
+			player2.isAttackPressed=true;
+			player2.color = 'orange';
 			break;
 		default: break;
 	}
@@ -57,6 +65,10 @@ document.onkeyup = function(event){
 		case player1.blockkey:
 			player1.isBlockPressed=false;
 			break;
+		case player1.attackkey:
+			player1.isAttackPressed=false;
+			player1.color = 'blue';
+			break;
 		
 		//player 2
 		case player2.jumpkey:
@@ -71,6 +83,10 @@ document.onkeyup = function(event){
 		case player2.blockkey:
 			player2.isBlockPressed=false;
 			break;
+		case player2.attackkey:
+			player2.isAttackPressed=false;
+			player2.color = 'red';
+			break;
 		default: break;
 	}
 }
@@ -82,13 +98,14 @@ var schema1={
 	left:65,//a
 	right:68,//d
 	down:83,//s
-	};
+	attack:81//q
+};
 	
 var schema2={
 	up:38,//ArU
 	left:37,//ArL
 	right:39,//ArR
-	down:40//ArD
-	};
-	
+	down:40,//ArD
+	attack:96//Num0
+};
 	

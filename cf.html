@@ -1,14 +1,19 @@
 <canvas id="ctx" width="1000" height="500" style="border:1px solid #000000;"></canvas>
+
+<script src="jsf/variables.js"></script>
 <script src="jsf/fighters_stats/rectangle_blue.js"></script>
 <script src="jsf/fighters_stats/rectangle_red.js"></script>
+<script src="jsf/fighter.js"></script>
 <script src="jsf/keys.js"></script>
 <script src="jsf/physics.js"></script>
-<script src="jsf/fighter.js"></script>
-<script src="jsf/variables.js"></script>
 <script src="jsf/facebook.js"></script>
 
 
+
 <script>
+
+var player1 = Fighter(20,10,schema1,rectangle_blue);	//create player 1
+var player2 = Fighter(400,10,schema2,rectangle_red);	//create player 2
 
 drawFrame = function(){
 	drawEntity(player1);
