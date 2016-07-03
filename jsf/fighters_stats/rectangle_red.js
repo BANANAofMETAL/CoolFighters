@@ -1,4 +1,4 @@
-var AbilityB2 = ability('b','melee',dmgtypes(0,0,0,0,1,0),dmgtypes(0,0,0,0,0.3,0),50,50,30);
+var AbilityB2 = ability(0,'melee',dmgtypes(0,0,0,0,1,0),dmgtypes(0,0,0,0,0.3,0),50,50,30);
 
 var rectangle_red = {
 	color:'red',

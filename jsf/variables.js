@@ -18,6 +18,7 @@ dmgtypes = function(air,earth,electric,fire,physical,water){
 
 ability = function(id,type,basedmg,scaledmg,cooldown,currentcooldown,manacost){
 	var self = {
+		id:id,
 		type:type,
 		basedmg:basedmg,
 		scaledmg:scaledmg,
@@ -30,6 +31,7 @@ ability = function(id,type,basedmg,scaledmg,cooldown,currentcooldown,manacost){
 
 var WIDTH = 1000;			//canvas width
 var HEIGHT = 500;			//canvas height
+var MENU_HEIGHT = 80;
 var FRAME_RATE = 0;
 var IS_PAUSED = false;
 var PAUSED_KEY = 80; //p
