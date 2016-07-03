@@ -3,28 +3,43 @@
 <script src="jsf/variables.js"></script>
 <script src="jsf/fighters_stats/rectangle_blue.js"></script>
 <script src="jsf/fighters_stats/rectangle_red.js"></script>
+<script src="jsf/physics.js"></script>
 <script src="jsf/fighter.js"></script>
 <script src="jsf/keys.js"></script>
-<script src="jsf/physics.js"></script>
 <script src="jsf/facebook.js"></script>
 
 
 
 <script>
 
-var player1 = Fighter(20,10,schema1,rectangle_blue);	//create player 1
-var player2 = Fighter(400,10,schema2,rectangle_red);	//create player 2
+var player1 = Fighter(20,HEIGHT/2,schema1,rectangle_blue);	//create player 1
+var player2 = Fighter(WIDTH-20,HEIGHT/2,schema2,rectangle_red);	//create player 2
 
 drawFrame = function(){
 	drawEntity(player1);
 	drawEntity(player2);
+	
+	//every 25 frames, a second passes
+	FRAME_RATE++;
+	
+	ctx.save();
+	ctx.fillStyle = 'blue';
+	ctx.fillText("Hp  :"+player1.hp,10,30);
+	ctx.fillText("Mana:"+player1.mana,10,60);
+	ctx.fillStyle = 'red';
+	ctx.fillText(player2.hp+":   Hp",WIDTH-140,30);
+	ctx.fillText(player2.mana+":Mana",WIDTH-140,60);
+	ctx.restore();
+	
+	player1.performAttack(player2);
+	player2.performAttack(player1);
 }
 
 drawEntity = function(actor){
 	drawRectangle(actor);
 }
 
-drawEntity=function (p){
+drawRectangle=function (p){
 
 	ctx.save();
     ctx.fillStyle=p.color;
@@ -33,12 +48,19 @@ drawEntity=function (p){
 }
 
 update = function(){
-	ctx.clearRect(0,0,WIDTH,HEIGHT);
+	//if pause, prints pause and skips update functions
+	if (IS_PAUSED){
+		ctx.save();
+		ctx.font = '80px Consolas';
+		ctx.fillStyle = 'black';
+		ctx.fillText("PAUSED",WIDTH/2-100,HEIGHT/2-50);
+		ctx.restore();
+		return;
+	}
+	ctx.clearRect(0,0,WIDTH,HEIGHT);//clears board
 	
-	gravity(player1);
-	movement(player1);
-	gravity(player2);
-	movement(player2);
+	refreshFrame(player1);
+	refreshFrame(player2);
 	
 	drawFrame();
 	

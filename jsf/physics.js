@@ -204,3 +204,8 @@ movement=function(actor){
 		}
 	}
 }
+
+refreshFrame = function(actor){
+	gravity(actor);
+	movement(actor);
+}

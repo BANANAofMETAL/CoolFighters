@@ -3,7 +3,9 @@
 document.onkeydown = function(event){
 	
 	
-	
+	if (event.keyCode == PAUSED_KEY){
+		IS_PAUSED = !IS_PAUSED;
+	}
 	
 	
 	switch (event.keyCode){
