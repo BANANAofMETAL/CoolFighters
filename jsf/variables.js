@@ -35,4 +35,5 @@ var MENU_HEIGHT = 80;
 var FRAME_RATE = 0;
 var IS_PAUSED = false;
 var PAUSED_KEY = 80; //p
+var BATTLE_OVER = false;
 

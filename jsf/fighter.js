@@ -82,6 +82,10 @@ Fighter = function(x,y,schema,character){
 			
 			if (testColition(self,receiver)){
 				receiver.hp-=25;
+				if(receiver.hp<=0){
+					receiver.hp = 0;
+					BATTLE_OVER = true;
+				}
 			}
 		}
 	}
