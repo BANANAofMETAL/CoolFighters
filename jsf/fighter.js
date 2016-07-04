@@ -26,14 +26,8 @@ Fighter = function(x,y,schema,character){
 		//buffs
 		//defuffs
 		
-		
-		//ability stats
-		abilityBasicStats:character.abilityB,
-		//ability1Stats:
-		//ability2Stats:
-		//ability3Stats:
-		//abilityultStats:
-		
+		ability:character.ability,
+				
 		//key variables
 		jumpkey:schema.up,
 		moveleft:schema.left,
@@ -47,13 +41,13 @@ Fighter = function(x,y,schema,character){
 		isRightPressed:false,
 		isLeftPressed:false,
 		isBlockPressed:false,
-		isAttackPressed:false,
+		isAttackPressed:[false,false,false,false,false],
 	};
 	
 	
 	self.performAttack = function(receiver){
 		//increases cooldown of ability, until it reaches required time.
-		self.abilityBasicStats.currcd++;
+		self.ability[0].currcd++;
 		
 		//health and mana regeneration each second. 
 		if (FRAME_RATE%25==0){//1 second. could be a variable
@@ -73,19 +67,28 @@ Fighter = function(x,y,schema,character){
 		}
 		//if player has the mana, cooldown is up and is pressing atk button,
 		//performs an attack (bagan with melee)
-		if (self.isAttackPressed &&
-			self.abilityBasicStats.cd<=self.abilityBasicStats.currcd && 
-			self.mana>=self.abilityBasicStats.manacost){
+		if (self.isAttackPressed[0] &&
+			self.ability[0].cd<=self.ability[0].currcd && 
+			self.mana>=self.ability[0].manacost){
 		
-			self.mana-=self.abilityBasicStats.manacost;
-			self.abilityBasicStats.currcd = 0;
-			
-			if (testColition(self,receiver)){
-				receiver.hp-=25;
-				if(receiver.hp<=0){
-					receiver.hp = 0;
-					BATTLE_OVER = true;
-				}
+			self.mana-=self.ability[0].manacost;
+			self.ability[0].currcd = 0;
+			switch (self.ability[0].type){
+				case 'melee':
+					if (testColition(self,receiver)){
+						if (receiver.isBlockPressed){
+							receiver.hp-=self.ability[0].basedmg.physical/2;
+						}
+						else{
+							receiver.hp-=self.ability[0].basedmg.physical;
+						}
+						if(receiver.hp<=0){
+							receiver.hp = 0;
+							BATTLE_OVER = true;
+						}
+					}
+					break;
+				default:break;
 			}
 		}
 	}
