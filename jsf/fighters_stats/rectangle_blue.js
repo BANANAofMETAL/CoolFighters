@@ -1,13 +1,15 @@
-var AbilityB1 = ability(0,'melee',dmgtypes(0,0,0,0,1,0),dmgtypes(0,0,0,0,0.3,0),50,50,25);
+var Ability0 = abilityStats(0,'melee',dmgtypes(0,0,0,0,30,0),dmgtypes(0,0,0,0,0.3,0),10,75,75,30);
+//var Ability1 = abilityStats(0,'melee',dmgtypes(0,0,0,0,30,0),dmgtypes(0,0,0,0,0.3,0),10,50,50,30);
+//var Ability2 = abilityStats(0,'melee',dmgtypes(0,0,0,0,30,0),dmgtypes(0,0,0,0,0.3,0),10,50,50,30);
+//var Ability3 = abilityStats(0,'melee',dmgtypes(0,0,0,0,30,0),dmgtypes(0,0,0,0,0.3,0),10,50,50,30);
+//var Ability4 = abilityStats(0,'melee',dmgtypes(0,0,0,0,30,0),dmgtypes(0,0,0,0,0.3,0),10,50,50,30);
+
+var abilities = [Ability0/*,Ability1,Ability2,Ability3,Ability4*/];
 
 var rectangle_blue = {
 	color:'blue',
 	height:40,
 	width:30,
-	abilityB:AbilityB1,
-	//ability1:ability('melee',dmgtypes(0,0,0,0,1,0),dmgtypes(0,0,0,0,0.3,0),50,0),
-	//ability2:ability('melee',dmgtypes(0,0,0,0,1,0),dmgtypes(0,0,0,0,0.3,0),50,0),
-	//ability3:ability('melee',dmgtypes(0,0,0,0,1,0),dmgtypes(0,0,0,0,0.3,0),50,0),
-	//abilityU:ability('melee',dmgtypes(0,0,0,0,1,0),dmgtypes(0,0,0,0,0.3,0),50,0),
+	ability:abilities,
 }
 
