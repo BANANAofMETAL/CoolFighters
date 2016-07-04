@@ -16,13 +16,12 @@ dmgtypes = function(air,earth,electric,fire,physical,water){
 	return self;
 }
 
-abilityStats = function(id,type,basedmg,scaledmg,range,cooldown,currentcooldown,manacost){
+ability = function(id,type,basedmg,scaledmg,cooldown,currentcooldown,manacost){
 	var self = {
 		id:id,
-		type:type,//melee,projectile,linear,AOE,global,
+		type:type,
 		basedmg:basedmg,
 		scaledmg:scaledmg,
-		range:range,
 		cd:cooldown,
 		currcd:currentcooldown,
 		manacost:manacost,

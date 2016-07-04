@@ -48,11 +48,11 @@ drawAbilityMenu = function(){
 	}
 	
 	//this will get inside the above for
-	if(player1.ability[0].cd-player1.ability[0].currcd < 0){
+	if(player1.abilityBasicStats.cd-player1.abilityBasicStats.currcd < 0){
 		ctx.fillText('R',30,HEIGHT+50);
 	}
 	else{
-		ctx.fillText(Math.ceil((player1.ability[0].cd-player1.ability[0].currcd)/25),30,HEIGHT+50);
+		ctx.fillText(Math.ceil((player1.abilityBasicStats.cd-player1.abilityBasicStats.currcd)/25),30,HEIGHT+50);
 	}
 	
 	for (var i=4;i>=0;i--){
@@ -60,11 +60,11 @@ drawAbilityMenu = function(){
 	}
 	
 	//this will get inside the above for
-	if(player2.ability[0].cd-player2.ability[0].currcd < 0){
+	if(player2.abilityBasicStats.cd-player2.abilityBasicStats.currcd < 0){
 		ctx.fillText('R',WIDTH-60-60*5,HEIGHT+50);
 	}
 	else{
-		ctx.fillText(Math.ceil((player2.ability[0].cd-player2.ability[0].currcd)/25),WIDTH-60-60*5,HEIGHT+50);
+		ctx.fillText(Math.ceil((player2.abilityBasicStats.cd-player2.abilityBasicStats.currcd)/25),WIDTH-60-60*5,HEIGHT+50);
 	}
 	
 	ctx.restore();
