@@ -25,12 +25,52 @@ drawFrame = function(){
 	FRAME_RATE++;
 	
 	ctx.save();
+	/*
 	ctx.fillStyle = 'blue';
 	ctx.fillText("Hp  :"+player1.hp,10,30);
 	ctx.fillText("Mana:"+player1.mana,10,60);
 	ctx.fillStyle = 'red';
 	ctx.fillText(player2.hp+":  Hp",WIDTH-140,30);
 	ctx.fillText(player2.mana+":Mana",WIDTH-140,60);
+	*/
+	
+	var fillammhp = Math.round(BAR_SIZE*(player1.hp/player1.maxhp));
+	var fillammmana = Math.round(BAR_SIZE*(player1.mana/player1.maxmana));
+	
+	ctx.font = '20px Consolas';
+	
+	ctx.fillStyle = 'red';
+	ctx.fillRect(10,10,fillammhp,25);
+	ctx.strokeStyle = 'black';
+	ctx.strokeRect(10,10,BAR_SIZE,25);
+	ctx.fillStyle = 'black';
+	ctx.fillText(player1.hp+'/'+player1.maxhp,25,30);	
+	
+	ctx.fillStyle = '#00ffff';//cyan
+	ctx.fillRect(10,50,fillammmana,25);
+	ctx.strokeStyle = 'black';
+	ctx.strokeRect(10,50,BAR_SIZE,25);
+	ctx.fillStyle = 'black';
+	ctx.fillText(player1.mana+'/'+player1.maxmana,25,70);
+	
+	
+	var fillammhp = Math.round(BAR_SIZE*(player2.hp/player2.maxhp));
+	var fillammmana = Math.round(BAR_SIZE*(player2.mana/player2.maxmana));
+	
+	ctx.fillStyle = 'red';
+	ctx.fillRect(WIDTH - 10 - fillammhp,10,fillammhp,25);
+	ctx.strokeStyle = 'black';
+	ctx.strokeRect(WIDTH - 10 - BAR_SIZE,10,BAR_SIZE,25);
+	ctx.fillStyle = 'black';
+	ctx.fillText(player2.hp+'/'+player2.maxhp,WIDTH - 100,30);
+	
+	ctx.fillStyle = '#00ffff';//cyan
+	ctx.fillRect(WIDTH - 10 - fillammmana,50,fillammmana,25);
+	ctx.strokeStyle = 'black';
+	ctx.strokeRect(WIDTH - 10 - BAR_SIZE,50,BAR_SIZE,25);
+	ctx.fillStyle = 'black';
+	ctx.fillText(player2.mana+'/'+player2.maxmana,WIDTH - 100,70);
+	
 	ctx.restore();
 	
 	player1.performAttack(player2);

@@ -75,7 +75,7 @@ Fighter = function(x,y,schema,character){
 			self.ability[0].currcd = 0;
 			switch (self.ability[0].type){
 				case 'melee':
-					if (testColition(self,receiver)){
+					if (testColition(self,receiver,self.ability[0].range)){
 						if (receiver.isBlockPressed){
 							receiver.hp-=self.ability[0].basedmg.physical/2;
 						}

@@ -31,7 +31,6 @@ var rect2={
 return testColitionRect(rect1,rect2);
 }
 
-
 /**
 * This function tests Rectangle Colition
 *
@@ -51,6 +50,44 @@ testColitionRect=function (r1,r2){
 	&&     r2.y<=r1.y+r1.height ;
 
 }
+
+
+testColition=function (ent1,ent2,range){
+var circle={
+	x:ent1.x,
+	y:ent1.y,
+	r:range,
+}
+
+var rect={
+	x:ent2.x,
+	y:ent2.y,
+	width:ent2.width,
+	height:ent2.height,
+}
+
+return testColitionRectCircle(circle,rect);
+}
+
+
+testColitionRectCircle=function (c,r){
+
+	var distancex = Math.abs(c.x - r.x);
+    var distancey = Math.abs(c.y - r.y);
+
+    if (distancex > (r.width/2 + c.r)) { return false; }
+    if (distancey > (r.height/2 + c.r)) { return false; }
+
+    if (distancex <= (r.width/2)) { return true; } 
+    if (distancey <= (r.height/2)) { return true; }
+
+    var cornerDistance_sq = Math.pow(distancex - r.width/2,2) +
+                         Math.pow(distancey - r.height/2,2);
+
+    return (cornerDistance_sq <= Math.pow(circle.r,2));
+
+}
+
 
 /**
 * This function makes the player jump.
@@ -129,7 +166,7 @@ movement=function(actor){
 	
 	/*
 	*  if a player tries to move right while he is already at 
-	*  0 on x-axis, the player bugs. These three lines prevent that.
+	*  0 on x-axis, the player bugs. These four lines prevent that.
 	*/
 	if (actor.x <= actor.width/2 && actor.isLeftPressed){
 		actor.x = actor.width/2;
