@@ -13,7 +13,7 @@ var gravity_pol=1;
 var slide=2;
 var friction=1;
 
-testColition=function (ent1,ent2){
+testColitionEntities=function (ent1,ent2){
 var rect1={
 	x:ent1.x-ent1.width/2,
 	y:ent1.y-ent1.height/2,
@@ -145,7 +145,33 @@ gravity = function (actor){
 	}
 }
 
-
+performCollition=function(actor,enemy){
+    
+      actor.isLeftCollide=false;
+        actor.isRightCollide=false;
+        actor.isUpCollide=false;
+        actor.isDownCollide=false;
+            
+    if(testColitionEntities(actor,enemy)){
+        if(actor.y>enemy.y){
+            ctx.fillText("U",actor.x-actor.width/2,actor.y-actor.height/2);
+            actor.isUpCollide=true;
+        }
+        else if(actor.y<enemy.y){
+            ctx.fillText("D",actor.x-actor.width/2,actor.y-actor.height/2);
+            actor.isDownCollide=true;
+        }
+       if(actor.x<enemy.x){
+            ctx.fillText("R",actor.x-actor.width/2,actor.y-actor.height/2);
+            actor.isRightCollide=true;
+        }
+        else if(actor.x>enemy.x){
+             ctx.fillText("L",actor.x-actor.width/2,actor.y-actor.height/2);
+            actor.isLeftCollide=true;
+        }
+      
+    }
+}
 
 /**
 * This function controls the x-axis movements of the player.
@@ -162,12 +188,26 @@ gravity = function (actor){
 *
 * returns void.
 */
-movement=function(actor){
+movement=function(actor,enemy){
 	
-	/*
+performCollition(actor,enemy);
+      
+    
+    	/*
 	*  if a player tries to move right while he is already at 
 	*  0 on x-axis, the player bugs. These four lines prevent that.
 	*/
+    if(actor.isLeftCollide && (actor.isLeftPressed || actor.xAccel!=0)){
+        actor.xAccel = 0;
+        return;
+    }
+    
+        if(actor.isRightCollide && (actor.isRightPressed|| actor.xAccel!=0)){
+        actor.xAccel = 0;
+        return;
+    }
+
+    
 	if (actor.x <= actor.width/2 && actor.isLeftPressed){
 		actor.x = actor.width/2;
 		actor.xAccel = 0;
@@ -242,7 +282,7 @@ movement=function(actor){
 	}
 }
 
-refreshFrame = function(actor){
-	gravity(actor);
-	movement(actor);
+refreshFrame = function(actor,enemy){
+	gravity(actor,enemy);
+	movement(actor,enemy);
 }

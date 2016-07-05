@@ -42,6 +42,12 @@ Fighter = function(x,y,schema,character){
 		isLeftPressed:false,
 		isBlockPressed:false,
 		isAttackPressed:[false,false,false,false,false],
+        
+        //collitions
+        isLeftCollide:false,
+        isRightCollide:false,
+        isUpCollide:false,
+        isDownCollide:false,
 	};
 	
 	

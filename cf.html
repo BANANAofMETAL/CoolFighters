@@ -147,8 +147,8 @@ update = function(){
 	}
 	ctx.clearRect(0,0,WIDTH,HEIGHT);//clears board
 	
-	refreshFrame(player1);
-	refreshFrame(player2);
+	refreshFrame(player1,player2);
+	refreshFrame(player2,player1);
 	
 	drawFrame();
 	
