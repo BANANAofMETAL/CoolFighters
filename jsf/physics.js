@@ -197,13 +197,16 @@ performCollition(actor,enemy);
 	*  if a player tries to move right while he is already at 
 	*  0 on x-axis, the player bugs. These four lines prevent that.
 	*/
-    if(actor.isLeftCollide && (actor.isLeftPressed || actor.xAccel!=0)){
+    if(actor.isLeftCollide && (actor.isLeftPressed || actor.xAccel<0)){
         actor.xAccel = 0;
+		actor.x = enemy.x+enemy.width/2+actor.width/2;
+		
         return;
     }
     
-        if(actor.isRightCollide && (actor.isRightPressed|| actor.xAccel!=0)){
+        if(actor.isRightCollide && (actor.isRightPressed|| actor.xAccel>0)){
         actor.xAccel = 0;
+		actor.x = enemy.x-enemy.width/2-actor.width/2;
         return;
     }
 
